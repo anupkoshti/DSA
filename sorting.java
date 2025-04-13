@@ -6,7 +6,7 @@ public class sorting {
         int n = arr.length;
         for (int i = 0; i <= n - 2; i++) {
             int mixIdx = i;
-            for (int j = i; j <= n - 1; j++) {
+            for (int j = i+1; j <= n - 1; j++) {
                 if (arr[j] < arr[mixIdx])
                     mixIdx = j;
             }
@@ -14,6 +14,10 @@ public class sorting {
             int temp = arr[i];
             arr[i] = arr[mixIdx];
             arr[mixIdx] = temp;
+            for (int k : arr)
+                System.out.print(k + " ");
+            System.out.println();
+
         }
     }
 
@@ -27,6 +31,9 @@ public class sorting {
                     arr[j + 1] = temp;
                 }
             }
+            for (int k : arr)
+                System.out.print(k + " ");
+            System.out.println();
         }
     }
 
@@ -47,14 +54,21 @@ public class sorting {
 
     static void insertionItr(int[] arr) {
         int n = arr.length;
-        for (int i = 0; i <= n - 1; i++) {
-            int j = i;
-            while (j > 0 && arr[j - 1] > arr[j]) {
-                int temp = arr[j - 1];
-                arr[j - 1] = arr[j];
-                arr[j] = temp;
+        
+        for(int i=1;i<=n-1;i++){
+            int key=arr[i];
+            int j=i-1;
+
+            while (j>=0 && arr[j]>key) {
+                arr[j+1]=arr[j];
                 j--;
             }
+            arr[j+1]=key;
+
+            System.out.print(i+"th iteration : ");
+            for (int num : arr)
+                System.out.print(num + " ");
+            System.out.println();
         }
     }
 
@@ -153,16 +167,19 @@ public class sorting {
     // }
 
     public static void main(String[] args) {
-        // int[] arr = { 5, 4, 3, 2, 1 };
-        int[] arr = { 1,2,3,4,5};
+        // int[] arr = { 13,46,24,52,20,9 };
+        // int[] arr = { 64,25,12,22,11 };
+        int[] arr = { 14,9,15,12,6,8,13 };
+
+        // int[] arr = { 1,2,3,4,5};
         // selection(arr);
         // bubbleItr(arr);
         // bubbleRec(arr, arr.length);
-        // insertionItr(arr);
+        insertionItr(arr);
         // mergeSort(arr, 0, arr.length-1);
-        quickSort(arr, 0, arr.length - 1);
+        // quickSort(arr, 0, arr.length - 1);
 
-        for (int i : arr)
-            System.out.print(i + " ");
+        // for (int i : arr)
+        //     System.out.print(i + " ");
     }
 }
