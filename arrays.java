@@ -17,6 +17,8 @@ public class arrays {
         return largest;
     }
 
+
+    //better -> find largest and then compare the largest with the arr[i]
     static int getSecondLargest(int[] arr) {
         int largest = arr[0];
         for (int i = 0; i < arr.length; i++) {
@@ -33,6 +35,8 @@ public class arrays {
         return secLar;
     }
 
+
+    //optimal ->  
     static int getSecondLargestOpt(int[] arr) {
         int largest = arr[0], secLar = -1;
 
@@ -48,7 +52,8 @@ public class arrays {
     }
 
     // remove duplicates from sorted
-    static int removeDuplicatedSorted(int[] arr) {
+    // return the length of the array after removing duplicates
+    static int removeDuplicateSSorted(int[] arr) {
         int i = 0;
         for (int j = 1; j < arr.length; j++) {
             if (arr[j] != arr[i]) {
@@ -69,12 +74,19 @@ public class arrays {
 
         // shift
         for (int i = d; i < n; i++) {
-            arr[i - d] = arr[i];
+            arr[i - d] = arr[i];    
         }
 
         for (int i = n - d; i < n; i++) {
             arr[i] = temp[i - n + d];
         }
+    }
+
+    static void leftRotateByDPlacesOptimal(int[] arr, int d) {
+        int n=arr.length;
+        reverse(arr, 0, d-1);
+        reverse(arr, d, n-1);
+        reverse(arr, 0, n-1);
     }
 
     static void reverse(int[] arr, int start, int end) {
@@ -89,6 +101,8 @@ public class arrays {
         }
     }
 
+
+    //optimal
     static void moveZeroesToEnd(int[] arr) {
         int j = -1, n = arr.length;
         for (int i = 0; i < n; i++) {
@@ -108,6 +122,8 @@ public class arrays {
             }
         }
     }
+
+
 
     static ArrayList<Integer> getUnion(int arr1[], int[] arr2) {
         // HashSet<Integer> temp=new HashSet<>();
@@ -140,13 +156,13 @@ public class arrays {
         }
 
         while (i < n1) {
-            if (res.isEmpty() || res.get(res.size() - 1) != arr1[i]) {
+            if (res.isEmpty() || res.getLast() != arr1[i]) {
                 res.add(arr1[i]);
             }
             i++;
         }
         while (j < n2) {
-            if (res.isEmpty() || res.get(res.size() - 1) != arr2[j]) {
+            if (res.isEmpty() || res.getLast() != arr2[j]) {
                 res.add(arr2[j]);
             }
             j++;
@@ -840,26 +856,37 @@ public class arrays {
         return cnt;
     }
 
+    static void printArray(int[] arr){
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         // int[] arr={3,4,2,1,76,22};
         // int[] arr={1,1,2,2,2,3,3};
-        // int[] arr={1,2,3,4,5,6,7};
+
+        int[] arr={1,2,3,4,5};
         // int d=3;
+
         // int n=arr.length;
         // System.out.println(getLargest(arr));
         // System.out.println(getSecondLargestOpt(arr));
-        // System.out.println(removeDuplicatedSorted(arr));
-        // leftRotateByDPlaces(arr, 8);
+        // System.out.println(removeDuplicateSSorted(arr));
+        printArray(arr);
+        leftRotateByDPlaces(arr, 2);
+        printArray(arr);
         // reverse(arr, 0, d-1);
         // reverse(arr, d, n-1);
         // reverse(arr, 0, n-1);
 
-        // int[]arr={1,0,2,3,2,0,0,4,5,1};
+        // int[] arr={1,0,2,3,2,0,0,4,5,1};
         // moveZeroesToEnd(arr);
         // for(int i:arr) System.out.print(i+" ");
 
-        int[] arr1 = { 1, 1, 2, 3, 4, 5 };
-        int[] arr2 = { 2, 3, 4, 4, 5, 6 };
+        // int[] arr1 = { 1, 1, 2, 3, 4, 5 };
+        // int[] arr2 = { 2, 3, 4, 4, 5, 6 };
         // System.out.println(getUnionOptimized(arr1, arr2));
         // System.out.println(getIntersectionOptimized(arr1, arr2));
 
@@ -945,7 +972,7 @@ public class arrays {
         // }
         // System.out.println(spiralTraversalMatrix(arr));
 
-        int[] arr={1,2,3,-3,1,1,1,4,2,-3};
-        System.out.println(countSubarrayWithGivenSum(arr, 3));
+        // int[] arr={1,2,3,-3,1,1,1,4,2,-3};
+        // System.out.println(countSubarrayWithGivenSum(arr, 3));
     }
 }

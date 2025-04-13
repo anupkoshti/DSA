@@ -85,6 +85,8 @@ class Mathematics {
         return res;
     }
 
+    //TC - O(log(min(a,b)))
+
     int GCDopt(int a, int b){
         while(a>0 && b>0) {
             if(a>b){
