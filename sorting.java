@@ -126,7 +126,7 @@ public class sorting {
         while (i < j) {
             while (arr[i] >= pivot && i <= high - 1)
                 i++;
-            while (arr[j] < pivot && j >= low - 1)
+            while (arr[j] < pivot && j >= low + 1)
                 j--;
 
             // swap arr[i],arr[j]
@@ -168,16 +168,16 @@ public class sorting {
 
     public static void main(String[] args) {
         // int[] arr = { 13,46,24,52,20,9 };
-        // int[] arr = { 64,25,12,22,11 };
-        int[] arr = { 14,9,15,12,6,8,13 };
+        int[] arr = { 64,25,12,22,11 };
+        // int[] arr = { 14,9,15,12,6,8,13 };
 
         // int[] arr = { 1,2,3,4,5};
-        // selection(arr);
+        selection(arr);
         // bubbleItr(arr);
         // bubbleRec(arr, arr.length);
-        insertionItr(arr);
+        // insertionItr(arr);
         // mergeSort(arr, 0, arr.length-1);
-        // quickSort(arr, 0, arr.length - 1);
+        quickSort(arr, 0, arr.length - 1);
 
         // for (int i : arr)
         //     System.out.print(i + " ");

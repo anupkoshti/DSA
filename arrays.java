@@ -103,25 +103,52 @@ public class arrays {
 
 
     //optimal
-    static void moveZeroesToEnd(int[] arr) {
-        int j = -1, n = arr.length;
-        for (int i = 0; i < n; i++) {
-            if (arr[i] == 0) {
-                j = i;
+    // static void moveZeroesToEnd(int[] arr) {
+    //     int j = -1, n = arr.length;
+    //     for (int i = 0; i < n; i++) {
+    //         if (arr[i] == 0) {
+    //             j = i;
+    //             break;
+    //         }
+    //     }
+
+    //     for (int i = j + 1; i < n; i++) {
+    //         if (arr[i] != 0) {
+    //             // swap
+    //             int temp = arr[j];
+    //             arr[j] = arr[i];
+    //             arr[i] = temp;
+    //             j++;
+    //         }
+    //     }
+    // }
+
+    //optiml
+
+    static void moveZeroesToEndOptimal(int[] arr) {
+        int j=-1;
+        //find the first index of non-zero ele
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==0) {
+                j=i;
                 break;
             }
         }
+        //if no zereos found
+        if(j==-1) return;
 
-        for (int i = j + 1; i < n; i++) {
-            if (arr[i] != 0) {
-                // swap
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
+        //now traverse the rest
+        for(int i=j+1;i<arr.length;i++){
+            if(arr[i] != 0) {
+                //swap arr[i],arr[j] and then j++
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
                 j++;
             }
         }
     }
+
 
 
 
@@ -874,9 +901,9 @@ public class arrays {
         // System.out.println(getLargest(arr));
         // System.out.println(getSecondLargestOpt(arr));
         // System.out.println(removeDuplicateSSorted(arr));
-        printArray(arr);
-        leftRotateByDPlaces(arr, 2);
-        printArray(arr);
+        // printArray(arr);
+        // leftRotateByDPlaces(arr, 2);
+        // printArray(arr);
         // reverse(arr, 0, d-1);
         // reverse(arr, d, n-1);
         // reverse(arr, 0, n-1);
@@ -974,5 +1001,9 @@ public class arrays {
 
         // int[] arr={1,2,3,-3,1,1,1,4,2,-3};
         // System.out.println(countSubarrayWithGivenSum(arr, 3));
+
+        int[] arr1={1,0,2,3,2,0,0,4,5,1};
+        moveZeroesToEndOptimal(arr1);
+        printArray(arr1);
     }
 }

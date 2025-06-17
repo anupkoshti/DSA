@@ -1,6 +1,10 @@
-1th iteration : 9 14 15 12 6 8 13 
-2th iteration : 9 14 15 12 6 8 13 
-3th iteration : 9 12 14 15 6 8 13 
-4th iteration : 6 9 12 14 15 8 13 
-5th iteration : 6 8 9 12 14 15 13 
-6th iteration : 6 8 9 12 13 14 15 
+* * * * * * * * * * 
+                *   
+              *     
+            *       
+          *         
+        *           
+      *             
+    *               
+  *                 
+* * * * * * * * * * 
